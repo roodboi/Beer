@@ -16,7 +16,7 @@ $(document).ready(function(){
            var ID = data.items[0].id.videoId;
             //ID = 'sIpbI0SQczM';
             resultsLoop(data);
-       })
+       });
 
 
 
@@ -42,6 +42,27 @@ $(document).ready(function(){
 
 
     }
+
+    function mainVid(ID) {
+        $('#video').html(`
+        
+                <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/${ID}"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>       
+        `);
+    }
+    $('main').on('click','article',function(){
+        //$("html").load("/video");
+
+        var id = $(this).attr('data-key');
+
+        var url = "/video" + "?id=" + id;
+
+         //window.location = "/video?username=alex&password=pw1";
+         window.location = url;
+
+
+    });
 
     $('main').on('click','article',function(){
             var id = $(this).attr('data-key');
