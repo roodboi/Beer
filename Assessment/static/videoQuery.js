@@ -1,4 +1,7 @@
 
+   var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
+
+
 $(document).ready(function(){
 
 
@@ -24,11 +27,12 @@ $(document).ready(function(){
 
 
     }
+    var channel = $('section').attr('data-channel');
 
 	    $.get(
     "https://www.googleapis.com/youtube/v3/search",{
       part : 'snippet',
-      channelId : 'UC1vGZ4Voadn4F5R07GhbA5A',
+      channelId : channel,
       type : 'video',
       key: key},
       function(data) {

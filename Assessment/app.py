@@ -11,9 +11,8 @@ def hello_world():
 @app.route('/video')
 def vid():
     vidId = request.args.get('id')
-    #password = request.args.get('password')
-    #, urlparameter='http://www.stackoverflow.com'
-    return render_template('video.html', videoToShow=vidId)
+    vidChannel = request.args.get('channel')
+    return render_template('video.html', videoToShow=vidId,channelToShow=vidChannel)
 
 
 if __name__ == '__main__':
