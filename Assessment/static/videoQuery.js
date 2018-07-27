@@ -1,8 +1,10 @@
 
+   var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
+
 
 $(document).ready(function(){
 
-
+    //Function to create article elements and append to section
     function resultsLoop(data){
 
            $.each(data.items,function(i, item){
@@ -28,7 +30,7 @@ $(document).ready(function(){
     }
     var channel = $('section').attr('data-channel');
 
-    //Get videos from same author
+    //Get videos from same author and populate section
 
 	    $.get(
     "https://www.googleapis.com/youtube/v3/search",{
@@ -42,15 +44,10 @@ console.log(data);
       }
   );
 
-
+//Fuction to get comments from video and display
 	        function commentsLoop(data){
 
            $.each(data.items,function(i, item){
-
-           // var thumb = item.snippet.thumbnails.medium.url;
-           // var title = item.snippet.title;
-           // var desc = item.snippet.description.substring(0,100);
-
 
            var vid = item.id.videoId;
 
@@ -81,11 +78,12 @@ console.log(data);
         url: urlComments,
         success: function(result){
             console.log(result);
-            // $('.data').text(data);
+
             // console.log(data);
             commentsLoop(result)
     }});
 
+    //Set event listener on videos to redirect correctly
     $('main').on('click','article',function(){
         //$("html").load("/video");
 

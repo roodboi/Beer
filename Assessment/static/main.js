@@ -1,5 +1,5 @@
 
-
+   var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
 
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
@@ -11,24 +11,67 @@
    }
 
    var globalData;
-$(document).ready(function(){
+
+//Wait until document is finished loading
+$(document).ready(function() {
+
+    //This is not working because CORS on Firefox and IE
+    $("#form1").submit(function() {
+
+        console.log(document.getElementById('myText').value);
+        initialFeed(document.getElementById('myText').value);
+    //     var URL ="https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surf%2Bmike&key=AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo"
+    //
+	 //      $.ajax({
+    //     dataType: "jsonp",
+    //     type: 'GET',
+    //     url: URL,
+    //     success: function(result){
+    //         console.log(result);
+    //         // $('.data').text(data);
+    //         // console.log(data);
+    //         commentsLoop(result)
+    //         console.log(result)
+    // }});
 
 
-       $.get(URL, options, function (data){
-           console.log(data);
-           globalData = data;
-           var ID = data.items[0].id.videoId;
-            //ID = 'sIpbI0SQczM';
-           var initialData = [];
-           for(i = 0; i < 10; i++){
-               initialData.push(data.items[i])
-           }
-           console.log(initialData)
-            resultsLoop(initialData);
-       });
+
+    });
+
+    //This will populate the main section on the home page with videos
+    function initialFeed(filterQuery){
+
+        //var URL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo&part=snippet&type=video&q=surf";
+                var URL = "https://www.googleapis.com/youtube/v3/search";
+        options = {
+      part : 'snippet',
+      type : 'video',
+            q:'surf',
+            maxResults:50,
+      key: key};
+
+
+    $.get(URL, options, function (data) {
+        console.log(data);
+        globalData = data;
+        var ID = data.items[0].id.videoId;
+        //ID = 'sIpbI0SQczM';
+        var initialData = [];
+        for (i = 0; i < 10; i++) {
+            initialData.push(data.items[i])
+        }
+        console.log(initialData)
+        resultsLoop(initialData);
+    });
+
+}
+
+//Calling Method to populate homepage
+    initialFeed("")
 
 
         var counter = 10;
+    //Function to create article elements and append to section
     function resultsLoop(data){
 
            //$.each(data.items,function(i, item){
@@ -53,15 +96,7 @@ $(document).ready(function(){
 
     }
 
-    function mainVid(ID) {
-        $('#video').html(`
-        
-                <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/${ID}"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>       
-        `);
-    }
-
+    //Function sets event listener on articles and redirects the page
     $('main').on('click','article',function(){
         //$("html").load("/video");
 
@@ -76,12 +111,8 @@ $(document).ready(function(){
 
     });
 
-    $('main').on('click','article',function(){
-            var id = $(this).attr('data-key');
-            mainVid(id);
-           });
 
-
+    //Function to filter out the videos based on input text
     $("#myInput").on("keyup", function() {
 
     var value = $(this).val().toLowerCase();
@@ -93,7 +124,7 @@ $(document).ready(function(){
   });
 
 
-
+//Function to enable Infinite scrolling(Dynamically loading videos)
      $(window).scroll(function(){
 
     if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
