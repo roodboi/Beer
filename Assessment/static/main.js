@@ -1,5 +1,4 @@
 
-   var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
 
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
