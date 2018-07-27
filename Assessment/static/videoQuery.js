@@ -11,9 +11,10 @@ $(document).ready(function(){
            var title = item.snippet.title;
            var desc = item.snippet.description.substring(0,100);
            var vid = item.id.videoId;
+           var channel = item.snippet.channelId;
 
            $('main').append(`
-                   <article class="item" data-key="${vid}">
+                   <article class="item" data-key="${vid}" data-channel="${channel}">
             <img src="${thumb}" alt="" class="thumb">
             <div class="details">
                 <h4>${title}</h4>
@@ -49,14 +50,15 @@ console.log(data);
            // var thumb = item.snippet.thumbnails.medium.url;
            // var title = item.snippet.title;
            // var desc = item.snippet.description.substring(0,100);
-           // var channel = item.snippet.channelId;
-           // var vid = item.id.videoId;
+
+
+           var vid = item.id.videoId;
 
                var comment = item.snippet.topLevelComment.snippet.textDisplay;
                var name = item.snippet.topLevelComment.snippet.authorDisplayName;
 
            $('#comments').append(`
-         <article class="comment">
+         <article class="comment" data-key="${vid}" >
 
             <div class="content">
                 <h4>${name}</h4>
@@ -84,7 +86,19 @@ console.log(data);
             commentsLoop(result)
     }});
 
+    $('main').on('click','article',function(){
+        //$("html").load("/video");
 
+        var id = $(this).attr('data-key');
+        var channel = $(this).attr('data-channel');
+
+        var url = "/video" + "?id=" + id +"&channel="+channel;
+
+         //window.location = "/video?username=alex&password=pw1";
+         window.location = url;
+
+
+    });
 
 
 });

@@ -1,5 +1,4 @@
 
-
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
    var options = {
@@ -52,12 +51,12 @@ $(document).ready(function(){
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>       
         `);
     }
+
     $('main').on('click','article',function(){
         //$("html").load("/video");
 
         var id = $(this).attr('data-key');
         var channel = $(this).attr('data-channel');
-        //Also want channel ID
 
         var url = "/video" + "?id=" + id +"&channel="+channel;
 
