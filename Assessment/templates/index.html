@@ -11,13 +11,60 @@
 
 <style>
     main{
-        margin-top: 20px;
+        margin-top: 10px;
         background-color: #ffffff;
     }
     input{
         margin:20px;
-        border: 2px solid black;
+    position: absolute;
+    top: 120px;
+    left: 100px;
+        {#border: 2px solid black;#}
     }
+input[type=text] {
+    {#width: 100%;#}
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+    form{
+        margin: 10px;
+        position: absolute;
+
+    top: -5px;
+    left: 1000px;
+    }
+    button{
+    {#display: inline;#}
+        position: absolute;
+    top: 200px;
+    left: 1225px;
+    }
+
+.button {
+    background-color: #eeeeee; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+        background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
 </style>
 
  </head>
@@ -30,7 +77,15 @@
   <i class="fas fa-swimmer"></i>
 </div>
 
-<input id="myInput" type="text" placeholder="Filter by Video Title..">
+<input id="myInput" type="text" placeholder=" Filter by Video Title..">
+
+
+
+ <form action="/action_page.php" method="get" id="form1">
+<input id="myInput2" size = 50 type="text" placeholder=" Enter additional query parameters to Refine Search..">
+</form>
+
+<button class="button" type="submit" form="form1" value="Submit">Search</button>
 
 <div class = "container">
 
@@ -40,6 +95,9 @@
 
 
     </main>
+
+
+
 
 </div>
 </body>
