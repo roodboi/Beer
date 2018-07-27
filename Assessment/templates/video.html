@@ -7,31 +7,106 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="./static/videoQuery.js"></script>
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 <style>
     main{
-    padding: 370px 18px 10px;
+    padding: 450px 18px 10px;
+    margin-left: 20px;
+    background-color: #ffffff;
+
 }
+
+    .column {
+    float: left;
+}
+
+.column {
+    float: left;
+}
+
+.left, .right {
+    width: 25%;
+}
+
+.middle {
+    width: 50%;
+}
+
+#video{
+    margin:10px;
+    margin-left: 70px;
+    background-color: #ffffff;
+
+}
+    button{
+        margin: 10px;
+    }
 
 </style>
 
 <body>
-<div class="container">
 
-    <section id = "video" data-channel={{ channelToShow }}>
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+<i class="fas fa-swimmer"></i>
 
-                <iframe width="560" height="315"
+</div>
+
+ <div class="row">
+
+
+
+  <div class="column">
+
+{#       <button onclick="goBack()">Home</button>#}
+{##}
+{#<script>#}
+{#function goBack() {#}
+{#    window.history.back();#}
+{#}#}
+{#</script>#}
+
+<div id ="comments">
+
+</div>
+
+      </div>
+
+
+
+  <div class="column">
+{##}
+{#<div class="container">#}
+
+
+
+    <section id = "video" data-key="{{ videoToShow }}" data-channel={{ channelToShow }}>
+
+                <iframe width="640" height="360"
                 src="https://www.youtube.com/embed/{{ videoToShow }}"
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     </section>
 
+
+    </div>
+
+{##}
+{#      </div>#}
+
+
+       <div class="column">
     <main>
 
 
 
 
     </main>
+      </div>
 
-</div>
+
+     </div>
+
 </body>
 </html>

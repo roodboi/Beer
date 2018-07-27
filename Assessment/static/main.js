@@ -44,7 +44,6 @@ $(document).ready(function(){
            `)
            });
 
-
     }
 
     function mainVid(ID) {
