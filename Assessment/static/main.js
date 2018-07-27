@@ -1,28 +1,38 @@
 
+
+
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
    var options = {
        part: 'snippet',
        key:key,
-       maxResults:20,
+       maxResults:50,
        playlistId:playlistId
    }
 
+   var globalData;
 $(document).ready(function(){
 
 
        $.get(URL, options, function (data){
            console.log(data);
+           globalData = data;
            var ID = data.items[0].id.videoId;
             //ID = 'sIpbI0SQczM';
-            resultsLoop(data);
+           var initialData = [];
+           for(i = 0; i < 10; i++){
+               initialData.push(data.items[i])
+           }
+           console.log(initialData)
+            resultsLoop(initialData);
        });
 
 
-
+        var counter = 10;
     function resultsLoop(data){
 
-           $.each(data.items,function(i, item){
+           //$.each(data.items,function(i, item){
+           $.each(data,function(i, item){
 
            var thumb = item.snippet.thumbnails.medium.url;
            var title = item.snippet.title;
@@ -81,5 +91,24 @@ $(document).ready(function(){
         //console.log(this.parent());
     });
   });
+
+
+
+     $(window).scroll(function(){
+
+    if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+
+        var initialData = [];
+        var end = counter + 10;
+        for(i = counter; i < end; i++){
+               initialData.push(globalData.items[i])
+           }
+           counter = counter + 10;
+           console.log(counter)
+            resultsLoop(initialData);
+
+  }
+
+ });
 
 });
