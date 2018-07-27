@@ -1,6 +1,3 @@
-var URL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo&part=snippet&type=video&q=surf";
-   var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
-
 
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
@@ -75,5 +72,11 @@ $(document).ready(function(){
            });
 
 
+  //   $("#myInput").on("keyup", function() {
+  //   var value = $(this).val().toLowerCase();
+  //   $("h4").filter(function() {
+  //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  //   });
+  // });
 
 });
