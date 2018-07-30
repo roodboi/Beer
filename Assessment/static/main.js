@@ -1,5 +1,6 @@
 
 
+
     var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
 
    var options = {
@@ -17,8 +18,39 @@ $(document).ready(function() {
     //This is not working because CORS on Firefox and IE
     $("#form1").submit(function() {
 
-        console.log(document.getElementById('myText').value);
-        initialFeed(document.getElementById('myText').value);
+        alert(document.getElementById('myText').value);
+
+        // $( "#myInput" ).remove();
+        var el = document.getElementById('myInput');
+el.remove(); // Removes the div with the 'div-02' id
+
+    //     console.log(document.getElementById('myText').value);
+    //
+    //
+    //                     var URL = "https://www.googleapis.com/youtube/v3/search";
+    //     options = {
+    //   part : 'snippet',
+    //   type : 'video',
+    //         q:'mike',
+    //         maxResults:50,
+    //   key: key};
+    //
+    //
+    // $.get(URL, options, function (data) {
+    //     console.log(data);
+    //     globalData = data;
+    //     var ID = data.items[0].id.videoId;
+    //     //ID = 'sIpbI0SQczM';
+    //     var initialData = [];
+    //     for (i = 0; i < 10; i++) {
+    //         initialData.push(data.items[i])
+    //     }
+    //     console.log(initialData)
+    //     resultsLoop(initialData);
+    // });
+
+
+        //initialFeed(document.getElementById('myText').value);
     //     var URL ="https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surf%2Bmike&key=AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo"
     //
 	 //      $.ajax({

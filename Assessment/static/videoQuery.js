@@ -1,6 +1,7 @@
 
 
 
+
 $(document).ready(function(){
 
     //Function to create article elements and append to section
