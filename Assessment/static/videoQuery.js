@@ -1,7 +1,7 @@
 
+   //var key = "INSERT_KEY_HERE"
 
-
-
+//Wait until document is finished loading
 $(document).ready(function(){
 
     //Function to create article elements and append to section
@@ -67,6 +67,13 @@ console.log(data);
            });
 
     }
+
+    $('#comments').on('click','article',function () {
+        if(!$(this).hasClass("pressed")) {
+            $(this).append("<i class=\"fas fa-thumbs-up iconColor\"></i>");
+        }
+        $(this).addClass("pressed");
+    });
 
 	    //Get Comments on Video
     var idComments = $('section').attr('data-key');
