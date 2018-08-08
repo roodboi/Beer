@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+ <link rel="stylesheet" type="text/css" href="./static/styles.css"> </head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="./static/videoQuery.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+<style>
+    main{
+    padding: 450px 18px 10px;
+    margin-left: 20px;
+    background-color: #ffffff;
+
+}
+
+    .column {
+    float: left;
+}
+
+.column {
+    float: left;
+}
+
+#video{
+    margin:30px;
+    margin-left: 100px;
+    background-color: #ffffff;
+
+}
+    button{
+        margin: 10px;
+    }
+
+</style>
+
+<body>
+
+{#NavBar with Home button and icon#}
+
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+<i class="fas fa-swimmer"></i>
+
+</div>
+
+ <div class="row">
+
+  <div class="column">
+
+{#Comment sections#}
+
+      <div id ="comments">
+
+        </div>
+
+      </div>
+
+
+  <div class="column">
+
+{#Main video to be played#}
+    <section id = "video" data-key="{{ videoToShow }}" data-channel={{ channelToShow }}>
+
+                <iframe width="640" height="360"
+                src="https://www.youtube.com/embed/{{ videoToShow }}"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    </section>
+
+    </div>
+
+{#Videos from same author will be displayed here#}
+       <div class="column">
+    <main>
+
+    </main>
+      </div>
+
+
+     </div>
+
+</body>
+</html>

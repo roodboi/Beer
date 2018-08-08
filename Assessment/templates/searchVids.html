@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+ <link rel="stylesheet" type="text/css" href="./static/styles.css">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="./static/getNewVids.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+<style>
+    main{
+        margin-top: 10px;
+        background-color: #ffffff;
+    }
+    input{
+        margin:20px;
+    position: absolute;
+    top: 120px;
+    left: 100px;
+        {#border: 2px solid black;#}
+    }
+input[type=text] {
+    {#width: 100%;#}
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+    button{
+    {#display: inline;#}
+    position: absolute;
+    top: 250px;
+    right: 200px;
+    }
+.button {
+    background-color: #eeeeee; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+        background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+    textarea {
+       /*margin-top:115px;*/
+       /*margin-left:100px;*/
+       float:right;
+    width: 25%;
+    height: 50%;
+    padding: 12px 20px;
+    margin-top:80px;
+    margin-right:20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+</style>
+
+ </head>
+
+
+<body>
+
+{#NavBar with Home button and icon#}
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+  <i class="fas fa-swimmer"></i>
+</div>
+
+{#Able to filter videos via input text#}
+<input id="myInput" type="text" placeholder="Filter by Video Title..">
+
+
+{#Get optional query params#}
+<textarea rows="4" cols="50" id="myText" placeholder="Enter additional query parameters separated by commas to refine search...">
+</textarea>
+
+<!--<button class="button" type="submit" form="form1" value="Submit">Search</button>-->
+<button class="button" type="submit" value="Submit">Search</button>
+
+
+<div data-key="{{ videoKeyToShow }}" class = "container">
+
+{#    This section will contain the videos#}
+    <main>
+
+
+
+
+    </main>
+
+
+
+
+</div>
+</body>
+</html>
