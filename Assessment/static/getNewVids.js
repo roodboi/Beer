@@ -1,26 +1,15 @@
    var key = 'AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo'
 
-    var playlistId = 'PL8QlzjBVZXjRhCJSyT038EHWUpDzV5Xz6'
-
-   var options = {
-       part: 'snippet',
-       key:key,
-       maxResults:50,
-       playlistId:playlistId
-   }
-
    var globalData;
 
-//Wait until document is finished loading
-$(document).ready(function() {
+  $(document).ready(function() {
 
-      //EventListener in button to redirect with new paramaters when clicked
+  //EventListener on button to redirect with new paramaters when clicked
       $(".button").click(function() {
 
             var text = $('#myText').val();
             // alert(text);
         var keyword = 'surf,';
-
         keyword+= text;
 
         var url = "/searchVids" + "?keyword=" + keyword;
@@ -29,15 +18,21 @@ $(document).ready(function() {
 
       });
 
+
+      initialFeed("")
+
     //This will populate the main section on the home page with videos
     function initialFeed(filterQuery){
 
-        //var URL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDc5Y2QwI7t4r2xhEP8go6MrYccO9DreAo&part=snippet&type=video&q=surf";
+         var qKey = $('.container').attr('data-key');
+         console.log(qKey);
+
+
                 var URL = "https://www.googleapis.com/youtube/v3/search";
         options = {
       part : 'snippet',
       type : 'video',
-            q:'surf',
+            q:qKey,
             maxResults:50,
       key: key};
 
@@ -58,7 +53,7 @@ $(document).ready(function() {
 }
 
 //Calling Method to populate homepage
-    initialFeed("")
+    // initialFeed("")
 
 
         var counter = 10;
@@ -132,5 +127,4 @@ $(document).ready(function() {
   }
 
  });
-
 });
